@@ -6,4 +6,11 @@
     <dimen name="loginScreenPaddingBottom">50dp</dimen>
     <dimen name="loginScreenPaddingRight">20dp</dimen>
     <dimen name="loginScreenPaddingLeft">20dp</dimen>
+    <dimen name="loginFormTitleTextSize">20sp</dimen>
+    <dimen name="loginFormPadding">15dp</dimen>LoginFormDataContainer
+    <dimen name="loginFormDataContainerHeight">50dp</dimen>
+    <dimen name="loginFormDataContainerMarginTop">5dp</dimen>
+    <dimen name="loginFormDataContainerPaddingLeft">5dp</dimen>
+    <dimen name="loginFormDataContainerPaddingRight">5dp</dimen>
+    <dimen name="loginFormDataContainerImageSize">30dp</dimen>
 </resources>

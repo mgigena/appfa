@@ -3,60 +3,67 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/LoginScreen"
+    style="@style/MatchParent"
     tools:context=".login.LoginActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/LoginLogoText"
-        android:text="@string/app_name"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@color/loginFormContainerColor"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Get started"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Get started"/>
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress"/>
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword"/>
+    <android.support.v4.widget.NestedScrollView
+        style="@style/MatchParent"
+        android:fillViewport="true">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            style="@style/LoginScreen">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                tools:text="Login"/>
+            <TextView
+                style="@style/LoginLogoText"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                tools:text="Registrarse"/>
+            <LinearLayout
+                style="@style/LoginFormContainer">
+
+                <TextView
+                    style="@style/LoginFormTitle"/>
+
+                <LinearLayout
+                    style="@style/LoginFormDataContainer">
+
+                    <ImageView
+                        style="@style/LoginFormDataContainerImage"
+                        android:src="@drawable/ic_man_user"/>
+
+                    <EditText
+                        android:id="@+id/editText"
+                        style="@style/LoginFormDataEditText"
+                        android:hint="@string/loginFormUserHint"
+                        android:inputType="number"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/LoginFormDataContainer">
+
+                    <ImageView
+                        style="@style/LoginFormDataContainerImage"
+                        android:src="@drawable/ic_lock"/>
+
+                    <EditText
+                        android:id="@+id/editText2"
+                        style="@style/LoginFormDataEditText"
+                        android:hint="@string/loginFormPasswordHint"
+                        android:inputType="textPassword"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        style="@style/LoginFormButton"
+                        android:text="@string/loginButton"
+                        android:visibility="gone"/>
+
+                    <Button
+                        style="@style/LoginFormButton"
+                        android:text="@string/registerButton"/>
+                </RelativeLayout>
+            </LinearLayout>
         </RelativeLayout>
-    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </RelativeLayout>
