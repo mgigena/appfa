@@ -6,6 +6,42 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AppFullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="WrapContent">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="MatchParent">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <!--LOGIN-->
+
+    <style name="LoginScreen" parent="MatchParent">
+        <item name="android:background">@color/loginBackground</item>
+        <item name="android:paddingBottom">@dimen/loginScreenPaddingBottom</item>
+        <item name="android:paddingTop">@dimen/loginScreenPaddingTop</item>
+        <item name="android:paddingRight">@dimen/loginScreenPaddingRight</item>
+        <item name="android:paddingLeft">@dimen/loginScreenPaddingLeft</item>
+    </style>
+
+    <style name="LoginLogoText" parent="WrapContent">
+        <item name="fontPath">fonts/arnoia_caption.ttf</item>
+        <item name="android:textColor">@color/loginLogoTextColor</item>
+        <item name="android:textSize">@dimen/loginLogoTextSize</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
 
 </resources>

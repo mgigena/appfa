@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorBlack">#000000</color>
+
+    <!--LOGIN-->
+    <color name="loginBackground">#BBDEFB</color>
+    <color name="loginLogoTextColor">@color/colorBlack</color>
 </resources>
