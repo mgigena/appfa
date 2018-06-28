@@ -6,6 +6,7 @@
     <color name="colorBlack">#000000</color>
 
     <!--LOGIN-->
-    <color name="loginBackground">#BBDEFB</color>
+    <color name="loginBackground">#90CAF9</color>
     <color name="loginLogoTextColor">@color/colorBlack</color>
+    <color name="loginFormContainerColor">#BBDEFB</color>
 </resources>
