@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AppFA</string>
+
+    <!--LOGIN-->
+    <string name="loginFormTitle">Ingresa tus datos:</string>
+    <string name="loginFormUserHint">dni</string>
+    <string name="loginFormPasswordHint">contraseña</string>
+    <string name="loginButton">Ingresar</string>
+    <string name="registerButton">Registrarme</string>
 </resources>
