@@ -1,0 +1,8 @@
+ext {
+    butterKnifeVersion = '8.5.+'
+
+    compiler = [
+            butterKnife        : "com.jakewharton:butterknife:$butterKnifeVersion",
+            butterKnifeCompiler: "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
+    ]
+}
