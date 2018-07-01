@@ -1,0 +1,13 @@
+ext {
+    butterKnifeVersion = '8.8.1'
+    calligraphyVersion = '2.3.0'
+
+    compiler = [
+            butterKnife        : "com.jakewharton:butterknife:$butterKnifeVersion",
+            butterKnifeCompiler: "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
+    ]
+
+    style = [
+            calligraphy: "uk.co.chrisjenx:calligraphy:$calligraphyVersion"
+    ]
+}

@@ -44,13 +44,14 @@
                         android:src="@drawable/ic_lock"/>
 
                     <EditText
-                        android:id="@+id/editText2"
+                        android:id="@+id/userPassword"
                         style="@style/LoginFormDataEditText"
                         android:hint="@string/loginFormPasswordHint"
                         android:inputType="textPassword"/>
                 </LinearLayout>
 
                 <CheckBox
+                    android:id="@+id/showPassword"
                     style="@style/LoginFormShowPassword"/>
 
                 <RelativeLayout
