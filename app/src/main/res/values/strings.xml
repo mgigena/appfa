@@ -7,4 +7,5 @@
     <string name="loginFormPasswordHint">contraseña</string>
     <string name="loginButton">Ingresar</string>
     <string name="registerButton">Registrarme</string>
+    <string name="loginFormShowPassword">Mostrar contraseña</string>
 </resources>
