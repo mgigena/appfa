@@ -1,19 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    style="@style/MatchParent"
+    tools:context=".login.LoginActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    <android.support.v4.widget.NestedScrollView
+        style="@style/MatchParent"
+        android:fillViewport="true">
 
-</android.support.constraint.ConstraintLayout>
+        <RelativeLayout
+            style="@style/LoginScreen">
+
+            <TextView
+                style="@style/LoginLogoText"/>
+
+            <LinearLayout
+                style="@style/LoginFormContainer">
+
+                <TextView
+                    style="@style/LoginFormTitle"/>
+
+                <LinearLayout
+                    style="@style/LoginFormDataContainer">
+
+                    <ImageView
+                        style="@style/LoginFormDataContainerImage"
+                        android:src="@drawable/ic_man_user"/>
+
+                    <EditText
+                        android:id="@+id/editText"
+                        style="@style/LoginFormDataEditText"
+                        android:hint="@string/loginFormUserHint"
+                        android:inputType="number"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/LoginFormDataContainer">
+
+                    <ImageView
+                        style="@style/LoginFormDataContainerImage"
+                        android:src="@drawable/ic_lock"/>
+
+                    <EditText
+                        android:id="@+id/userPassword"
+                        style="@style/LoginFormDataEditText"
+                        android:hint="@string/loginFormPasswordHint"
+                        android:inputType="textPassword"/>
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/showPassword"
+                    style="@style/LoginFormShowPassword"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        style="@style/LoginFormButton"
+                        android:text="@string/loginButton"
+                        android:visibility="gone"/>
+
+                    <Button
+                        style="@style/LoginFormButton"
+                        android:text="@string/registerButton"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>
