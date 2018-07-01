@@ -99,9 +99,14 @@
     </style>
 
     <style name="LoginFormEditTextTheme" parent="WrapContent">
-        <item name="android:layout_width">match_parent</item>
-        <item name="fontPath">fonts/mirror_82.otf</item>
-        <item name="android:ems">10</item>
         <item name="colorAccent">@color/loginBackground</item>
     </style>
+
+    <style name="LoginFormShowPassword" parent="WrapContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="fontPath">fonts/mirror_82.otf</item>
+        <item name="android:text">@string/loginFormShowPassword</item>
+        <item name="android:theme">@style/LoginFormEditTextTheme</item>
+    </style>
+
 </resources>
