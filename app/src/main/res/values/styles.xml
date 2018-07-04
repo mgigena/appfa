@@ -109,4 +109,12 @@
         <item name="android:theme">@style/LoginFormEditTextTheme</item>
     </style>
 
+    <!--ERROR-->
+    <style name="ErrorMessageStyle" parent="WrapContent">
+        <item name="fontPath">fonts/mirror_82.otf</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textColor">@color/errorMessageColor</item>
+        <item name="android:textSize">@dimen/errorMessageTextSize</item>
+    </style>
+
 </resources>
