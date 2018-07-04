@@ -11,6 +11,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import com.appfa.android.utils.TextBaseUtils;
+
 public class LoginViewDelegate {
 
     private final Button loginButton;
@@ -22,12 +24,16 @@ public class LoginViewDelegate {
     private boolean isUserEmpty = true;
     private boolean isPasswordEmpty = true;
 
-    public LoginViewDelegate(Button loginButton, Button registerButton, EditText userName, EditText userPassword, CheckBox showPassword) {
+    private final LoginDelegateCallback callback;
+
+    public LoginViewDelegate(Button loginButton, Button registerButton, EditText userName,
+                             EditText userPassword, CheckBox showPassword, LoginDelegateCallback callback) {
         this.loginButton = loginButton;
         this.registerButton = registerButton;
         this.userName = userName;
         this.userPassword = userPassword;
         this.showPassword = showPassword;
+        this.callback = callback;
 
         setBehavior();
     }
@@ -35,6 +41,7 @@ public class LoginViewDelegate {
     private void setBehavior() {
         setUpLoginRegisterButtonsVisibility();
         setUpShowPasswordCheckbox();
+        setUpButtonsActions();
     }
 
     private void onUserFieldTextChanged(@NonNull final String text) {
@@ -108,5 +115,23 @@ public class LoginViewDelegate {
                 userPassword.setSelection(cursor);
             }
         });
+    }
+
+    private void setUpButtonsActions() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO checkear si los campos estan completos
+                final String user = userName.getText().toString();
+                final String password = userPassword.getText().toString();
+                if (callback != null) {
+                    callback.onLoginButtonPressed(TextBaseUtils.getFormattedUser(user), password);
+                }
+            }
+        });
+    }
+
+    interface LoginDelegateCallback {
+        void onLoginButtonPressed(@NonNull String userName, @NonNull String password);
     }
 }

@@ -8,12 +8,10 @@ import android.widget.EditText;
 
 import com.appfa.android.R;
 import com.appfa.android.base.AppFaBaseActivity;
-import com.appfa.android.base.BasePresenter;
-import com.appfa.android.base.view.BaseView;
 
 import butterknife.BindView;
 
-public class LoginActivity extends AppFaBaseActivity implements LoginView{
+public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> implements LoginView, LoginViewDelegate.LoginDelegateCallback {
 
     @BindView(R.id.userName)
     EditText userName;
@@ -32,18 +30,41 @@ public class LoginActivity extends AppFaBaseActivity implements LoginView{
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_login);
         super.onCreate(savedInstanceState);
-
-        buttonsDelegate = new LoginViewDelegate(loginButton, registerButton, userName, userPassword, showPassword);
     }
 
+
     @Override
-    public BasePresenter createPresenter() {
-        return null;
+    public LoginPresenter createPresenter() {
+        return new LoginPresenter();
     }
 
     @NonNull
     @Override
-    public BaseView getMvpView() {
+    public LoginView getMvpView() {
         return this;
+    }
+
+    @Override
+    public void onLoginButtonPressed(@NonNull String userName, @NonNull String password) {
+        getPresenter().attempLogin(userName, password);
+    }
+
+    @Override
+    public void isUserLogged(boolean isLogged) {
+        if (isLogged) {
+
+        } else {
+            buttonsDelegate = new LoginViewDelegate(loginButton, registerButton, userName, userPassword, showPassword, this);
+        }
+    }
+
+    @Override
+    public void onLoginSuccessful() {
+
+    }
+
+    @Override
+    public void onLoginFailed() {
+
     }
 }
