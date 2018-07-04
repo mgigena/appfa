@@ -13,4 +13,7 @@
     <dimen name="loginFormDataContainerPaddingLeft">5dp</dimen>
     <dimen name="loginFormDataContainerPaddingRight">5dp</dimen>
     <dimen name="loginFormDataContainerImageSize">30dp</dimen>
+
+    <!--ERROR_MESSAGE-->
+    <dimen name="errorMessageTextSize">18sp</dimen>
 </resources>
