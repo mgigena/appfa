@@ -28,7 +28,7 @@ public abstract class AppFaBaseActivity<V extends BaseView, P extends BasePresen
     @Override
     protected void onStart() {
         super.onStart();
-        presenter.attachView(getMvpView());
+        getPresenter().attachView(getMvpView());
     }
 
     @Override
@@ -40,6 +40,7 @@ public abstract class AppFaBaseActivity<V extends BaseView, P extends BasePresen
     protected void onStop() {
         super.onStop();
         unbinder.unbind();
+        presenter.detachView();
     }
 
     public abstract P createPresenter();
