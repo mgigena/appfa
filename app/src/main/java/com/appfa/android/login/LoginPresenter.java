@@ -3,7 +3,8 @@ package com.appfa.android.login;
 import android.support.annotation.NonNull;
 
 import com.appfa.android.base.BasePresenter;
-import com.appfa.android.login.firebase.FirebaseLogin;
+import com.appfa.android.firebase.FirebaseLogin;
+import com.appfa.android.firebase.FirebaseManager;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginPresenter extends BasePresenter<LoginView> implements LoginPresenterContract {

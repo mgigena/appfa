@@ -32,6 +32,8 @@ public class LoginViewDelegate {
     Button loginButton;
     @BindView(R.id.loginErrorMessage)
     TextView loginErrorMessage;
+    @BindView(R.id.registrationTextLink)
+    TextView registrationLink;
 
     private boolean isUserEmpty = true;
     private boolean isPasswordEmpty = true;
@@ -87,6 +89,15 @@ public class LoginViewDelegate {
                 }
             }
         });
+
+        registrationLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (callback != null) {
+                    callback.onRegistrationSelected();
+                }
+            }
+        });
     }
 
     private boolean isDataCompleted() {
@@ -100,5 +111,7 @@ public class LoginViewDelegate {
 
     interface LoginDelegateCallback {
         void onLoginButtonPressed(@NonNull String userName, @NonNull String password);
+
+        void onRegistrationSelected();
     }
 }

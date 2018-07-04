@@ -1,4 +1,4 @@
-package com.appfa.android.login.firebase;
+package com.appfa.android.firebase;
 
 public interface FirebaseLogin {
 
