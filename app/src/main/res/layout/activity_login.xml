@@ -17,6 +17,7 @@
                 style="@style/LoginLogoText"/>
 
             <LinearLayout
+                android:id="@+id/formContainer"
                 style="@style/LoginFormContainer">
 
                 <TextView
@@ -61,15 +62,16 @@
                     <Button
                         android:id="@+id/loginUser"
                         style="@style/LoginFormButton"
-                        android:text="@string/loginButton"
-                        android:visibility="gone"/>
-
-                    <Button
-                        android:id="@+id/registerUser"
-                        style="@style/LoginFormButton"
-                        android:text="@string/registerButton"/>
+                        android:text="@string/loginButton"/>
                 </RelativeLayout>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/loginErrorMessage"
+                style="@style/ErrorMessageStyle"
+                android:layout_below="@+id/formContainer"
+                tools:text="Error Message"/>
+
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 </RelativeLayout>

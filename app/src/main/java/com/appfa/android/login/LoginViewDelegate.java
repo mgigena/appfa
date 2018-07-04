@@ -1,103 +1,57 @@
 package com.appfa.android.login;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
-import android.text.Editable;
 import android.text.InputType;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.appfa.android.R;
+import com.appfa.android.annotation.ErrorMessages;
+import com.appfa.android.utils.KeyboardUtils;
 import com.appfa.android.utils.TextBaseUtils;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+import static com.appfa.android.annotation.ErrorMessages.DATA_REQUIRED;
 
 public class LoginViewDelegate {
 
-    private final Button loginButton;
-    private final Button registerButton;
-    private final EditText userName;
-    private final EditText userPassword;
-    private final CheckBox showPassword;
+    @BindView(R.id.userName)
+    EditText userName;
+    @BindView(R.id.userPassword)
+    EditText userPassword;
+    @BindView(R.id.showPassword)
+    CheckBox showPassword;
+    @BindView(R.id.loginUser)
+    Button loginButton;
+    @BindView(R.id.loginErrorMessage)
+    TextView loginErrorMessage;
 
     private boolean isUserEmpty = true;
     private boolean isPasswordEmpty = true;
 
+    private final KeyboardUtils keyboardUtils;
+
     private final LoginDelegateCallback callback;
 
-    public LoginViewDelegate(Button loginButton, Button registerButton, EditText userName,
-                             EditText userPassword, CheckBox showPassword, LoginDelegateCallback callback) {
-        this.loginButton = loginButton;
-        this.registerButton = registerButton;
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.showPassword = showPassword;
+    public LoginViewDelegate(View view, LoginDelegateCallback callback, Activity activity) {
+        ButterKnife.bind(this, view);
         this.callback = callback;
+
+        keyboardUtils = new KeyboardUtils(activity);
 
         setBehavior();
     }
 
     private void setBehavior() {
-        setUpLoginRegisterButtonsVisibility();
         setUpShowPasswordCheckbox();
         setUpButtonsActions();
-    }
-
-    private void onUserFieldTextChanged(@NonNull final String text) {
-        isUserEmpty = TextUtils.isEmpty(text);
-        showButtons();
-    }
-
-    private void onPasswordFieldTextChanged(@NonNull final String text) {
-        isPasswordEmpty = TextUtils.isEmpty(text);
-        showButtons();
-    }
-
-    private void showButtons() {
-        if (isUserEmpty && isPasswordEmpty) {
-            loginButton.setVisibility(View.GONE);
-            registerButton.setVisibility(View.VISIBLE);
-        } else {
-            registerButton.setVisibility(View.GONE);
-            loginButton.setVisibility(View.VISIBLE);
-        }
-    }
-
-    private void setUpLoginRegisterButtonsVisibility() {
-        userName.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                // not used
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                onUserFieldTextChanged(charSequence.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                // not used
-            }
-        });
-
-        userPassword.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                // not used
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                onPasswordFieldTextChanged(charSequence.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                // not used
-            }
-        });
     }
 
     private void setUpShowPasswordCheckbox() {
@@ -121,14 +75,27 @@ public class LoginViewDelegate {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO checkear si los campos estan completos
-                final String user = userName.getText().toString();
-                final String password = userPassword.getText().toString();
-                if (callback != null) {
-                    callback.onLoginButtonPressed(TextBaseUtils.getFormattedUser(user), password);
+                keyboardUtils.hideKeyboard();
+                if (isDataCompleted()) {
+                    if (callback != null) {
+                        final String user = userName.getText().toString();
+                        final String password = userPassword.getText().toString();
+                        callback.onLoginButtonPressed(TextBaseUtils.getFormattedUser(user), password);
+                    }
+                } else {
+                    showErrorMessage(DATA_REQUIRED);
                 }
             }
         });
+    }
+
+    private boolean isDataCompleted() {
+        return !userName.getText().toString().isEmpty() && !userPassword.getText().toString().isEmpty();
+    }
+
+    private void showErrorMessage(@ErrorMessages int errorMessage) {
+        String messge = loginErrorMessage.getContext().getString(errorMessage);
+        loginErrorMessage.setText(messge);
     }
 
     interface LoginDelegateCallback {
