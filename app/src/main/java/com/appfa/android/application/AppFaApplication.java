@@ -1,6 +1,8 @@
-package com.appfa.android;
+package com.appfa.android.application;
 
 import android.app.Application;
+
+import com.appfa.android.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 

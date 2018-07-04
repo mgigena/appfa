@@ -1,8 +1,7 @@
-package com.appfa.android.login;
+package com.appfa.android.firebase;
 
 import android.support.annotation.NonNull;
 
-import com.appfa.android.login.firebase.FirebaseLogin;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

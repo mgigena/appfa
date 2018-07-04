@@ -33,6 +33,11 @@ public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> 
     }
 
     @Override
+    public void onRegistrationSelected() {
+
+    }
+
+    @Override
     public void isUserLogged(boolean isLogged) {
         if (isLogged) {
 
