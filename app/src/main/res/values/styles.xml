@@ -116,7 +116,7 @@
 
     <!--REGISTRATION-->
     <style name="RegistrationButtonOnLogin" parent="WrapContent">
-        <item name="android:text">@string/registrationButton</item>
+        <item name="android:text">@string/registrationTextButton</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:clickable">true</item>
