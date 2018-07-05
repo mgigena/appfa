@@ -1,10 +1,12 @@
 package com.appfa.android.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.appfa.android.R;
 import com.appfa.android.base.AppFaBaseActivity;
+import com.appfa.android.registration.RegistrationActivity;
 
 public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> implements LoginView, LoginViewDelegate.LoginDelegateCallback {
 
@@ -34,7 +36,7 @@ public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> 
 
     @Override
     public void onRegistrationSelected() {
-
+        goToRegistration();
     }
 
     @Override
@@ -54,5 +56,10 @@ public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> 
     @Override
     public void onLoginFailed() {
 
+    }
+
+    private void goToRegistration() {
+        Intent intent = new Intent(this, RegistrationActivity.class);
+        startActivity(intent);
     }
 }

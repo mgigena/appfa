@@ -6,9 +6,15 @@
     <string name="loginFormUserHint">dni*</string>
     <string name="loginFormPasswordHint">contraseña*</string>
     <string name="loginButton">Ingresar</string>
-    <string name="registrationButton"><u>Registrate</u></string>
     <string name="loginFormShowPassword">Mostrar contraseña</string>
 
+    <!--REGISTRATION-->
+    <string name="registrationButton"><u>Registrate</u></string>
+    <string name="registrationFullName">nombre*</string>
+    <string name="registrationLastName">apellido*</string>
+    <string name="registrationUserName">dni*</string>
+    <string name="registrationPassword">contraseña*</string>
+    <string name="registrationRepeatPassword">repetir contraseña*</string>
 
     <!--ERROR MESSAGE-->
     <string name="error_data_required">* éste dato es obligatorio</string>
