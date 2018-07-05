@@ -52,6 +52,16 @@
                 style="@style/LoginFormDataEditText"
                 android:hint="@string/registrationRepeatPassword"
                 android:inputType="textPassword"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/registerUser"
+                    style="@style/LoginFormButton"
+                    android:text="@string/registrationButton"/>
+            </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
 
