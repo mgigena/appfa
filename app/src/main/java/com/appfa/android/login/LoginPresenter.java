@@ -5,11 +5,8 @@ import android.support.annotation.NonNull;
 import com.appfa.android.base.BasePresenter;
 import com.appfa.android.firebase.FirebaseLogin;
 import com.appfa.android.firebase.FirebaseManager;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginPresenter extends BasePresenter<LoginView> implements LoginPresenterContract {
-
-    private FirebaseAuth firebaseAuth;
 
     @Override
     public void attachView(LoginView view) {
@@ -40,7 +37,7 @@ public class LoginPresenter extends BasePresenter<LoginView> implements LoginPre
     }
 
     private void checkIfUserExists() {
-        final FirebaseLogin.ChechUserCallback callback = new FirebaseLogin.ChechUserCallback() {
+        final FirebaseLogin.CheckUserCallback callback = new FirebaseLogin.CheckUserCallback() {
             @Override
             public void isUserLogged(boolean isLogged) {
                 if (isViewAttached()) {
@@ -48,7 +45,6 @@ public class LoginPresenter extends BasePresenter<LoginView> implements LoginPre
                 }
             }
         };
-
         FirebaseManager.getInstance().checkIfUserIsLogged(callback);
     }
 }
