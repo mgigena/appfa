@@ -21,7 +21,7 @@
             android:layout_below="@+id/logo">
 
             <EditText
-                android:id="@+id/userFullName"
+                android:id="@+id/userFirstName"
                 style="@style/LoginFormDataEditText"
                 android:hint="@string/registrationFullName"
                 android:inputType="textCapSentences"/>
@@ -33,12 +33,18 @@
                 android:hint="@string/registrationLastName"
                 android:inputType="textCapSentences"/>
 
+            <EditText
+                android:id="@+id/userID"
+                style="@style/LoginFormDataEditText"
+                android:hint="@string/registrationUserID"
+                android:inputType="number"/>
+
 
             <EditText
                 android:id="@+id/userName"
                 style="@style/LoginFormDataEditText"
                 android:hint="@string/registrationUserName"
-                android:inputType="number"/>
+                android:inputType="textEmailAddress"/>
 
             <EditText
                 android:id="@+id/userPassword"
@@ -63,6 +69,12 @@
                     android:text="@string/registrationButton"/>
             </RelativeLayout>
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/registerErrorMessage"
+            style="@style/ErrorMessageStyle"
+            android:layout_below="@+id/formContainer"
+            tools:text="Error Message"/>
     </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>

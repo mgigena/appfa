@@ -1,6 +1,5 @@
 package com.appfa.android.login;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.text.InputType;
 import android.view.View;
@@ -12,15 +11,14 @@ import android.widget.TextView;
 
 import com.appfa.android.R;
 import com.appfa.android.annotation.ErrorMessages;
-import com.appfa.android.utils.KeyboardUtils;
-import com.appfa.android.utils.TextBaseUtils;
+import com.appfa.android.base.BaseViewDelegate;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.appfa.android.annotation.ErrorMessages.DATA_REQUIRED;
 
-public class LoginViewDelegate {
+public class LoginViewDelegate extends BaseViewDelegate {
 
     @BindView(R.id.userName)
     EditText userName;
@@ -35,18 +33,12 @@ public class LoginViewDelegate {
     @BindView(R.id.registrationTextLink)
     TextView registrationLink;
 
-    private boolean isUserEmpty = true;
-    private boolean isPasswordEmpty = true;
-
-    private final KeyboardUtils keyboardUtils;
-
     private final LoginDelegateCallback callback;
 
-    public LoginViewDelegate(View view, LoginDelegateCallback callback, Activity activity) {
+    public LoginViewDelegate(View view, LoginDelegateCallback callback) {
+        super(callback.getActivity());
         ButterKnife.bind(this, view);
         this.callback = callback;
-
-        keyboardUtils = new KeyboardUtils(activity);
 
         setBehavior();
     }
@@ -82,7 +74,7 @@ public class LoginViewDelegate {
                     if (callback != null) {
                         final String user = userName.getText().toString();
                         final String password = userPassword.getText().toString();
-                        callback.onLoginButtonPressed(TextBaseUtils.getFormattedUser(user), password);
+                        callback.onLoginButtonPressed(user, password);
                     }
                 } else {
                     showErrorMessage(DATA_REQUIRED);
@@ -104,12 +96,12 @@ public class LoginViewDelegate {
         return !userName.getText().toString().isEmpty() && !userPassword.getText().toString().isEmpty();
     }
 
-    private void showErrorMessage(@ErrorMessages int errorMessage) {
-        String messge = loginErrorMessage.getContext().getString(errorMessage);
-        loginErrorMessage.setText(messge);
+    protected void showErrorMessage(@ErrorMessages int errorMessage) {
+        loginErrorMessage.setText(errorMessage);
     }
 
-    interface LoginDelegateCallback {
+    interface LoginDelegateCallback extends BaseDelegateCallback {
+
         void onLoginButtonPressed(@NonNull String userName, @NonNull String password);
 
         void onRegistrationSelected();

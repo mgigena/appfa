@@ -1,5 +1,6 @@
 package com.appfa.android.login;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,6 +16,8 @@ public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        new LoginViewDelegate(getWindow().getDecorView().getRootView(), this);
     }
 
 
@@ -26,6 +29,11 @@ public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> 
     @NonNull
     @Override
     public LoginView getMvpView() {
+        return this;
+    }
+
+    @Override
+    public Activity getActivity() {
         return this;
     }
 
@@ -42,9 +50,7 @@ public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> 
     @Override
     public void isUserLogged(boolean isLogged) {
         if (isLogged) {
-
-        } else {
-            new LoginViewDelegate(getWindow().getDecorView().getRootView(), this, this);
+// TODO start app
         }
     }
 

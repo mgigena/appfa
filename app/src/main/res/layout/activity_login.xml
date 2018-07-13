@@ -26,7 +26,7 @@
                 android:id="@+id/userName"
                 style="@style/LoginFormDataEditText"
                 android:hint="@string/loginFormUserHint"
-                android:inputType="number"/>
+                android:inputType="textEmailAddress"/>
 
 
             <EditText
