@@ -12,7 +12,6 @@
     <style name="AppFullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
@@ -51,7 +50,6 @@
         <item name="android:background">@color/loginFormContainerColor</item>
         <item name="android:orientation">vertical</item>
         <item name="android:padding">@dimen/loginFormPadding</item>
-        <item name="android:layout_centerInParent">true</item>
     </style>
 
     <style name="LoginFormTitle" parent="WrapContent">
@@ -77,7 +75,6 @@
         <item name="android:layout_height">@dimen/loginFormDataContainerHeight</item>
         <item name="android:layout_marginTop">@dimen/loginFormDataContainerMarginTop</item>
         <item name="android:divider">@drawable/separator</item>
-        <item name="android:gravity">center</item>
         <item name="android:adjustViewBounds">true</item>
         <item name="android:background">@drawable/rounded_with_layout</item>
         <item name="android:orientation">horizontal</item>
@@ -91,14 +88,14 @@
         <item name="android:layout_width">@dimen/loginFormDataContainerImageSize</item>
     </style>
 
-    <style name="LoginFormDataEditText" parent="WrapContent">
+    <style name="LoginFormDataEditText" parent="LoginFormDataContainer">
         <item name="android:layout_width">match_parent</item>
         <item name="fontPath">fonts/mirror_82.otf</item>
         <item name="android:ems">10</item>
         <item name="android:theme">@style/LoginFormEditTextTheme</item>
     </style>
 
-    <style name="LoginFormEditTextTheme" parent="WrapContent">
+    <style name="LoginFormEditTextTheme" parent="LoginFormDataContainer">
         <item name="colorAccent">@color/loginBackground</item>
     </style>
 
@@ -115,6 +112,25 @@
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textColor">@color/errorMessageColor</item>
         <item name="android:textSize">@dimen/errorMessageTextSize</item>
+    </style>
+
+    <!--REGISTRATION-->
+    <style name="RegistrationButtonOnLogin" parent="WrapContent">
+        <item name="android:text">@string/registrationTextButton</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/registrationOnLoginTextSize</item>
+        <item name="fontPath">fonts/mirror_82.otf</item>
+    </style>
+
+    <style name="RegistrationScreen" parent="MatchParent">
+        <!--<item name="android:background">@color/loginBackground</item>-->
+        <item name="android:background">@drawable/login_bg</item>
+        <item name="android:paddingBottom">@dimen/loginScreenPaddingBottom</item>
+        <item name="android:paddingRight">@dimen/loginScreenPaddingRight</item>
+        <item name="android:paddingLeft">@dimen/loginScreenPaddingLeft</item>
     </style>
 
 </resources>

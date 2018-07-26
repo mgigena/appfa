@@ -2,7 +2,7 @@
 <resources>
     <!--LOGIN-->
     <dimen name="loginLogoTextSize">40sp</dimen>
-    <dimen name="loginScreenPaddingTop">100dp</dimen>
+    <dimen name="loginScreenPaddingTop">50dp</dimen>
     <dimen name="loginScreenPaddingBottom">50dp</dimen>
     <dimen name="loginScreenPaddingRight">20dp</dimen>
     <dimen name="loginScreenPaddingLeft">20dp</dimen>
@@ -16,4 +16,7 @@
 
     <!--ERROR_MESSAGE-->
     <dimen name="errorMessageTextSize">18sp</dimen>
+
+    <!--REGISTRATION-->
+    <dimen name="registrationOnLoginTextSize">20sp</dimen>
 </resources>

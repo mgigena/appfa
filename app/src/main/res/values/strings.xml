@@ -3,13 +3,22 @@
 
     <!--LOGIN-->
     <string name="loginFormTitle">Ingresa tus datos:</string>
-    <string name="loginFormUserHint">dni*</string>
+    <string name="loginFormUserHint">email*</string>
     <string name="loginFormPasswordHint">contraseña*</string>
     <string name="loginButton">Ingresar</string>
-    <string name="registerButton">Registrarme</string>
     <string name="loginFormShowPassword">Mostrar contraseña</string>
 
+    <!--REGISTRATION-->
+    <string name="registrationTextButton"><u>Registrate</u></string>
+    <string name="registrationFullName">nombre*</string>
+    <string name="registrationLastName">apellido*</string>
+    <string name="registrationUserID">dni*</string>
+    <string name="registrationUserName">email*</string>
+    <string name="registrationPassword">contraseña*</string>
+    <string name="registrationRepeatPassword">repetir contraseña*</string>
+    <string name="registrationButton">Registrar</string>
 
     <!--ERROR MESSAGE-->
-    <string name="error_data_required">* éste dato es obligatorio</string>
+    <string name="error_data_required">* dato es obligatorio</string>
+    <string name="error_passwords_do_not_match">las contraseñas no coinciden</string>
 </resources>

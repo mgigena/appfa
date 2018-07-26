@@ -1,8 +1,13 @@
-package com.appfa.android.login.firebase;
+package com.appfa.android.firebase;
 
 public interface FirebaseLogin {
 
-    interface ChechUserCallback {
+    interface RegisterUserCallback {
+        void onRegistrationSuccessful();
+        void onRegistrationFailed();// TODO añadir tipo de error
+    }
+
+    interface CheckUserCallback {
         void isUserLogged(boolean isLogged);
     }
 
