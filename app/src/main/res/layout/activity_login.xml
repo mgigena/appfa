@@ -1,64 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/LoginScreen"
     android:fillViewport="true"
-    tools:context=".login.LoginActivity">
+    android:orientation="vertical">
 
-    <RelativeLayout
-        style="@style/MatchParent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/logo"
-            style="@style/LoginLogoText"/>
-
-        <LinearLayout
-            android:id="@+id/formContainer"
-            style="@style/LoginFormContainer"
-            android:layout_below="@+id/logo">
+        <RelativeLayout
+            style="@style/MatchParent">
 
             <TextView
-                style="@style/LoginFormTitle"/>
+                android:id="@+id/logo"
+                style="@style/LoginLogoText"/>
 
-            <EditText
-                android:id="@+id/userName"
-                style="@style/LoginFormDataEditText"
-                android:hint="@string/loginFormUserHint"
-                android:inputType="textEmailAddress"/>
+            <TextView
+                android:id="@+id/subtitle"
+                style="@style/LoginFormTitle"
+                android:layout_below="@+id/logo"/>
 
+            <LinearLayout
+                android:id="@+id/formContainer"
+                style="@style/LoginFormContainer"
+                android:layout_below="@+id/subtitle">
 
-            <EditText
-                android:id="@+id/userPassword"
-                style="@style/LoginFormDataEditText"
-                android:hint="@string/loginFormPasswordHint"
-                android:inputType="textPassword"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_with_layout"
 
-            <CheckBox
-                android:id="@+id/showPassword"
-                style="@style/LoginFormShowPassword"/>
+                    android:orientation="horizontal">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="@dimen/loginFormDataContainerHeight"
+                        android:layout_height="@dimen/loginFormDataContainerImageSize"
+                        android:layout_gravity="center"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/ic_email"/>
 
-                <Button
-                    android:id="@+id/loginUser"
-                    style="@style/LoginFormButton"
-                    android:text="@string/loginButton"/>
-            </RelativeLayout>
-        </LinearLayout>
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/loginBackground"/>
 
-        <TextView
-            android:id="@+id/loginErrorMessage"
-            style="@style/ErrorMessageStyle"
-            android:layout_below="@+id/formContainer"
-            tools:text="Error Message"/>
+                    <EditText
+                        android:id="@+id/userName"
+                        style="@style/LoginFormDataEditText"
+                        android:hint="@string/loginFormUserHint"
+                        android:inputType="textEmailAddress"/>
+                </LinearLayout>
 
-        <TextView
-            android:id="@+id/registrationTextLink"
-            style="@style/RegistrationButtonOnLogin"/>
-    </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rounded_with_layout"
+                    android:orientation="horizontal">
 
-</android.support.v4.widget.NestedScrollView>
+                    <ImageView
+                        android:layout_width="@dimen/loginFormDataContainerHeight"
+                        android:layout_height="@dimen/loginFormDataContainerImageSize"
+                        android:layout_gravity="center"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/ic_password"/>
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/loginBackground"/>
+
+                    <EditText
+                        android:id="@+id/userPassword"
+                        style="@style/LoginFormDataEditText"
+                        android:hint="@string/loginFormPasswordHint"
+                        android:inputType="textPassword"/>
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/showPassword"
+                    style="@style/LoginFormShowPassword"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/loginUser"
+                        style="@style/LoginFormButton"
+                        android:text="@string/loginButton"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/loginErrorMessage"
+                style="@style/ErrorMessageStyle"
+                android:layout_below="@+id/formContainer"
+                tools:text="Error Message"/>
+
+            <TextView
+                android:id="@+id/registrationTextLink"
+                style="@style/RegistrationButtonOnLogin"/>
+        </RelativeLayout>
+    </FrameLayout>
+
+</ScrollView>

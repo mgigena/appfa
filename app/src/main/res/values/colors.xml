@@ -9,11 +9,14 @@
     <color name="colorRed">#D50000</color>
     <color name="colorTransparent">#80FFFFFF</color>
 
+    <!--SPLASH-->
+    <color name="splashPrimary">#212121</color>
+
     <!--LOGIN-->
     <color name="loginBackground">#01579B</color>
     <color name="loginLogoTextColor">@color/colorWhite</color>
     <color name="loginFormContainerColor">@color/colorTransparent</color>
-    <color name="loginFormTitleTextColor">@color/colorBlack</color>
+    <color name="loginFormTitleTextColor">@color/colorWhite</color>
     <color name="loginFormButtonColor">@color/loginBackground</color>
     <color name="loginFormButtonTextColor">@color/colorWhite</color>
 

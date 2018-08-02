@@ -15,6 +15,15 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/splashPrimary</item>
+        <item name="colorPrimaryDark">@color/splashPrimary</item>
+        <item name="colorAccent">@color/splashPrimary</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
     <style name="WrapContent">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
@@ -29,7 +38,7 @@
 
     <style name="LoginScreen" parent="MatchParent">
         <!--<item name="android:background">@color/loginBackground</item>-->
-        <item name="android:background">@drawable/login_bg</item>
+        <item name="android:background">@color/loginBackground</item>
         <item name="android:paddingBottom">@dimen/loginScreenPaddingBottom</item>
         <item name="android:paddingTop">@dimen/loginScreenPaddingTop</item>
         <item name="android:paddingRight">@dimen/loginScreenPaddingRight</item>
@@ -37,7 +46,7 @@
     </style>
 
     <style name="LoginLogoText" parent="WrapContent">
-        <item name="fontPath">fonts/arnoia_caption.ttf</item>
+        <item name="fontPath">fonts/splash.ttf</item>
         <item name="android:textColor">@color/loginLogoTextColor</item>
         <item name="android:textSize">@dimen/loginLogoTextSize</item>
         <item name="android:layout_alignParentTop">true</item>
@@ -47,7 +56,6 @@
 
     <style name="LoginFormContainer" parent="WrapContent">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:background">@color/loginFormContainerColor</item>
         <item name="android:orientation">vertical</item>
         <item name="android:padding">@dimen/loginFormPadding</item>
     </style>
@@ -57,6 +65,8 @@
         <item name="android:textColor">@color/loginFormTitleTextColor</item>
         <item name="android:textSize">@dimen/loginFormTitleTextSize</item>
         <item name="android:text">@string/loginFormTitle</item>
+        <item name="android:layout_marginTop">@dimen/loginFormSubtitleMarginTop</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
 
     <style name="LoginFormButton" parent="WrapContent">
@@ -76,8 +86,8 @@
         <item name="android:layout_marginTop">@dimen/loginFormDataContainerMarginTop</item>
         <item name="android:divider">@drawable/separator</item>
         <item name="android:adjustViewBounds">true</item>
-        <item name="android:background">@drawable/rounded_with_layout</item>
         <item name="android:orientation">horizontal</item>
+        <item name="background">@null</item>
         <item name="android:paddingRight">@dimen/loginFormDataContainerPaddingRight</item>
         <item name="android:paddingLeft">@dimen/loginFormDataContainerPaddingLeft</item>
         <item name="android:showDividers">middle</item>
@@ -88,15 +98,18 @@
         <item name="android:layout_width">@dimen/loginFormDataContainerImageSize</item>
     </style>
 
-    <style name="LoginFormDataEditText" parent="LoginFormDataContainer">
+    <style name="LoginFormDataEditText">
+        <item name="android:layout_marginTop">@dimen/loginFormDataContainerMarginTop</item>
         <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/loginFormDataContainerHeight</item>
         <item name="fontPath">fonts/mirror_82.otf</item>
         <item name="android:ems">10</item>
+        <item name="android:background">@null</item>
         <item name="android:theme">@style/LoginFormEditTextTheme</item>
     </style>
 
     <style name="LoginFormEditTextTheme" parent="LoginFormDataContainer">
-        <item name="colorAccent">@color/loginBackground</item>
+        <item name="colorAccent">@color/colorWhite</item>
     </style>
 
     <style name="LoginFormShowPassword" parent="WrapContent">
@@ -131,6 +144,23 @@
         <item name="android:paddingBottom">@dimen/loginScreenPaddingBottom</item>
         <item name="android:paddingRight">@dimen/loginScreenPaddingRight</item>
         <item name="android:paddingLeft">@dimen/loginScreenPaddingLeft</item>
+    </style>
+
+    <style name="SplashScreen" parent="MatchParent">
+        <item name="android:background">@color/splashPrimary</item>
+    </style>
+
+    <style name="SplashText">
+        <item name="fontPath">fonts/splash.ttf</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">48dp</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="HeaderText">
+        <item name="fontPath">fonts/splash.ttf</item>
     </style>
 
 </resources>

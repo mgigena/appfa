@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/LoginScreen"
+    android:fillViewport="true"
+    tools:context=".login.LoginActivity">
+
+    <RelativeLayout
+        style="@style/MatchParent">
+
+        <TextView
+            android:id="@+id/logo"
+            style="@style/LoginLogoText"/>
+
+        <LinearLayout
+            android:id="@+id/formContainer"
+            style="@style/LoginFormContainer"
+            android:layout_below="@+id/logo">
+
+            <TextView
+                style="@style/LoginFormTitle"/>
+
+            <EditText
+                android:id="@+id/userName"
+                style="@style/LoginFormDataEditText"
+                android:hint="@string/loginFormUserHint"
+                android:inputType="textEmailAddress"/>
+
+
+            <EditText
+                android:id="@+id/userPassword"
+                style="@style/LoginFormDataEditText"
+                android:hint="@string/loginFormPasswordHint"
+                android:inputType="textPassword"/>
+
+            <CheckBox
+                android:id="@+id/showPassword"
+                style="@style/LoginFormShowPassword"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/loginUser"
+                    style="@style/LoginFormButton"
+                    android:text="@string/loginButton"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/loginErrorMessage"
+            style="@style/ErrorMessageStyle"
+            android:layout_below="@+id/formContainer"
+            tools:text="Error Message"/>
+
+        <TextView
+            android:id="@+id/registrationTextLink"
+            style="@style/RegistrationButtonOnLogin"/>
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>
