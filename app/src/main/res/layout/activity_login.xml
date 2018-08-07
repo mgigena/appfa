@@ -2,6 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/LoginScreen"
     android:fillViewport="true"
     android:orientation="vertical">
@@ -75,13 +76,13 @@
                     <EditText
                         android:id="@+id/userPassword"
                         style="@style/LoginFormDataEditText"
-                        android:hint="@string/loginFormPasswordHint"
-                        android:inputType="textPassword"/>
+                        android:hint="@string/loginFormPasswordHint"/>
                 </LinearLayout>
 
-                <CheckBox
+                <android.support.v7.widget.AppCompatCheckBox
                     android:id="@+id/showPassword"
-                    style="@style/LoginFormShowPassword"/>
+                    style="@style/LoginFormShowPassword"
+                    app:buttonTint="@color/colorWhite"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"

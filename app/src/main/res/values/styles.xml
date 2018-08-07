@@ -117,6 +117,7 @@
         <item name="fontPath">fonts/mirror_82.otf</item>
         <item name="android:text">@string/loginFormShowPassword</item>
         <item name="android:theme">@style/LoginFormEditTextTheme</item>
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
     <!--ERROR-->
@@ -155,7 +156,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">48dp</item>
+        <item name="android:textSize">48sp</item>
         <item name="android:layout_centerInParent">true</item>
     </style>
 
