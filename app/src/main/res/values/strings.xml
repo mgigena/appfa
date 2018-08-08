@@ -36,5 +36,8 @@
     <string name="action_example">Example action</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="example_profile">Lionel Messi</string>
+    <string name="example_team">Buby\'s</string>
     <!--/DRAWER-->
 </resources>

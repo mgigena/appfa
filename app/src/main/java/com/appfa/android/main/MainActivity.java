@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_drawer);
+        actionbar.setHomeAsUpIndicator(R.mipmap.ic_burger);
         actionbar.setDisplayHomeAsUpEnabled(true);
     }
     private void configureNavigationDrawer() {

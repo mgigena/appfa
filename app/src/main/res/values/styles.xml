@@ -189,4 +189,10 @@
         <item name="actionMenuTextColor">@android:color/white</item>
     </style>
 
+    <!--Drawer-->
+    <style name="DrawerHeaderText">
+        <item name="fontPath">fonts/mirror_82.otf</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
 </resources>

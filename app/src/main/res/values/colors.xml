@@ -22,4 +22,8 @@
 
     <!--ERROR-->
     <color name="errorMessageColor">#fbc02d</color>
+
+    <!--MAIN-->
+    <!--DRAWER-->
+    <color name="drawerHeaderBackground">#FFA000</color>
 </resources>
