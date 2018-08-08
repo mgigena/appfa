@@ -61,7 +61,11 @@ public class MainActivity extends AppCompatActivity
             case 3:
                 title = getString(R.string.title_section3);
                 break;
+            case 4:
+                title = getString(R.string.title_section4);
+                break;
         }
+        restoreActionBar();
     }
 
     public void restoreActionBar() {

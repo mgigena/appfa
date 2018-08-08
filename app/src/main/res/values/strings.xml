@@ -22,9 +22,13 @@
     <string name="error_data_required">* dato es obligatorio</string>
     <string name="error_passwords_do_not_match">las contraseñas no coinciden</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+
+    <!--MAIN SCREEN-->
+    <!--DRAWER-->
+    <string name="title_section1">Mis Equipos</string>
+    <string name="title_section2">Mis Torneos</string>
+    <string name="title_section3">Palmarés</string>
+    <string name="title_section4">Cerrar Sesión</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -32,4 +36,5 @@
     <string name="action_example">Example action</string>
 
     <string name="action_settings">Settings</string>
+    <!--/DRAWER-->
 </resources>
