@@ -3,9 +3,7 @@ package com.appfa.android.team;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,16 +58,13 @@ public class TeamFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_team_list, container, false);
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (columnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, columnCount));
-            }
-            recyclerView.setAdapter(new TeamRecyclerViewAdapter(DummyContent.ITEMS, listener));
-        }
+        Context context = view.getContext();
+        TeamRecyclerView recyclerView = view.findViewById(R.id.list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        View emptyView = view.findViewById(R.id.emptyContainer);
+        recyclerView.setEmptyView(emptyView);
+        recyclerView.setAdapter(new TeamRecyclerViewAdapter(DummyContent.ITEMS, listener));
+
         return view;
     }
 

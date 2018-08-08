@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list"
-    android:name="com.appfa.android.team.TeamFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    app:layoutManager="LinearLayoutManager"
-    tools:context=".team.TeamFragment"
-    tools:listitem="@layout/fragment_team_item"/>
+    android:orientation="vertical">
+
+    <com.appfa.android.team.TeamRecyclerView
+        android:id="@+id/list"
+        android:name="com.appfa.android.team.TeamFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        tools:context=".team.TeamFragment"
+        tools:listitem="@layout/fragment_team_item"/>
+
+    <include layout="@layout/empty_state"/>
+
+</LinearLayout>
