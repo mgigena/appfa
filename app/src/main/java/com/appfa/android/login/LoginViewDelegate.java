@@ -17,8 +17,6 @@ import com.appfa.android.utils.TextBaseUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.appfa.android.annotation.ErrorMessages.DATA_REQUIRED;
-
 public class LoginViewDelegate extends BaseViewDelegate {
 
     @BindView(R.id.userName)
@@ -80,16 +78,19 @@ public class LoginViewDelegate extends BaseViewDelegate {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                keyboardUtils.hideKeyboard();
-                if (isDataCompleted()) {
-                    if (callback != null) {
+                // TODO descomentar
+//                keyboardUtils.hideKeyboard();
+//                if (isDataCompleted()) {
+//                    if (callback != null) {
                         final String user = userName.getText().toString();
                         final String password = userPassword.getText().toString();
                         callback.onLoginButtonPressed(user, password);
-                    }
-                } else {
-                    showErrorMessage(DATA_REQUIRED);
-                }
+//                    }
+//                } else {
+//                    showErrorMessage(DATA_REQUIRED);
+//                }
+
+
             }
         });
 
