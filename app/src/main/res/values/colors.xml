@@ -13,7 +13,7 @@
     <color name="splashPrimary">#212121</color>
 
     <!--LOGIN-->
-    <color name="loginBackground">#2874A6</color>
+    <color name="loginBackground">#154360</color>
     <color name="loginLogoTextColor">@color/colorWhite</color>
     <color name="loginFormContainerColor">@color/colorTransparent</color>
     <color name="loginFormTitleTextColor">@color/colorWhite</color>
@@ -22,4 +22,8 @@
 
     <!--ERROR-->
     <color name="errorMessageColor">#fbc02d</color>
+
+    <!--MAIN-->
+    <!--DRAWER-->
+    <color name="drawerHeaderBackground">#FFA000</color>
 </resources>

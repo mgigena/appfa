@@ -163,8 +163,7 @@
     </style>
 
     <style name="RegistrationScreen" parent="MatchParent">
-        <!--<item name="android:background">@color/loginBackground</item>-->
-        <item name="android:background">@drawable/login_bg</item>
+        <item name="android:background">@color/loginBackground</item>
         <item name="android:paddingBottom">@dimen/loginScreenPaddingBottom</item>
         <item name="android:paddingRight">@dimen/loginScreenPaddingRight</item>
         <item name="android:paddingLeft">@dimen/loginScreenPaddingLeft</item>
@@ -183,8 +182,17 @@
         <item name="android:layout_centerInParent">true</item>
     </style>
 
-    <style name="HeaderText">
-        <item name="fontPath">fonts/splash.ttf</item>
+    <!-- ToolBar -->
+    <style name="ToolBarStyle" parent="Theme.AppCompat">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+    </style>
+
+    <!--Drawer-->
+    <style name="DrawerHeaderText">
+        <item name="fontPath">fonts/mirror_82.otf</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
 </resources>

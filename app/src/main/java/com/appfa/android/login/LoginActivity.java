@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 
 import com.appfa.android.R;
 import com.appfa.android.base.AppFaBaseActivity;
+import com.appfa.android.main.MainActivity;
 import com.appfa.android.registration.RegistrationActivity;
 
 public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> implements LoginView, LoginViewDelegate.LoginDelegateCallback {
@@ -39,7 +40,8 @@ public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> 
 
     @Override
     public void onLoginButtonPressed(@NonNull String userName, @NonNull String password) {
-        getPresenter().attempLogin(userName, password);
+        //getPresenter().attempLogin(userName, password);
+        goToMain();
     }
 
     @Override
@@ -67,5 +69,11 @@ public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> 
     private void goToRegistration() {
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
+    }
+
+    private void goToMain() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
