@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.appfa.android.R;
 import com.appfa.android.annotation.CustomTypefaces;
@@ -30,10 +29,8 @@ public class LoginViewDelegate extends BaseViewDelegate {
     CheckBox showPassword;
     @BindView(R.id.loginUser)
     Button loginButton;
-    @BindView(R.id.loginErrorMessage)
-    TextView loginErrorMessage;
-    @BindView(R.id.registrationTextLink)
-    TextView registrationLink;
+    @BindView(R.id.registrationButton)
+    Button registrationLink;
 
     private final LoginDelegateCallback callback;
 
@@ -111,7 +108,7 @@ public class LoginViewDelegate extends BaseViewDelegate {
     }
 
     protected void showErrorMessage(@ErrorMessages int errorMessage) {
-        loginErrorMessage.setText(errorMessage);
+
     }
 
     interface LoginDelegateCallback extends BaseDelegateCallback {
