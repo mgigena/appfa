@@ -15,7 +15,6 @@ import com.appfa.android.base.BaseViewDelegate;
 import com.appfa.android.utils.TextBaseUtils;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class LoginViewDelegate extends BaseViewDelegate {
 
@@ -33,8 +32,7 @@ public class LoginViewDelegate extends BaseViewDelegate {
     private final LoginDelegateCallback callback;
 
     public LoginViewDelegate(View view, LoginDelegateCallback callback) {
-        super(callback.getActivity());
-        ButterKnife.bind(this, view);
+        super(view, callback);
         this.callback = callback;
 
         setBehavior();
