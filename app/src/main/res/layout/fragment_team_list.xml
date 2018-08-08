@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.appfa.android.team.TeamRecyclerView
+    <com.appfa.android.custom.ui.views.CustomRecyclerView
         android:id="@+id/list"
         android:name="com.appfa.android.team.TeamFragment"
         android:layout_width="match_parent"

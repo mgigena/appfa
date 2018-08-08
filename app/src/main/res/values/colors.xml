@@ -27,5 +27,5 @@
     <color name="drawerHeaderBackground">#FFA000</color>
 
     <!--LIST-->
-    <color name="emptyStateBackground">#BDBDBD</color>
+    <color name="emptyStateBackground">#F5F5F5</color>
 </resources>

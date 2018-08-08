@@ -14,8 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.appfa.android.R;
+import com.appfa.android.model.dto.TeamDTO;
 import com.appfa.android.team.TeamFragment;
-import com.appfa.android.team.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity implements TeamFragment.OnListFragmentInteractionListener {
 
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements TeamFragment.OnLi
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(TeamDTO item) {
 
     }
 }

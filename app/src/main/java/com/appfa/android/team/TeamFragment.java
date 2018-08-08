@@ -9,8 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.appfa.android.R;
+import com.appfa.android.custom.ui.views.CustomRecyclerView;
+import com.appfa.android.model.dto.TeamDTO;
 import com.appfa.android.team.dummy.DummyContent;
-import com.appfa.android.team.dummy.DummyContent.DummyItem;
 
 /**
  * A fragment representing a list of Items.
@@ -59,7 +60,7 @@ public class TeamFragment extends Fragment {
 
         // Set the adapter
         Context context = view.getContext();
-        TeamRecyclerView recyclerView = view.findViewById(R.id.list);
+        CustomRecyclerView recyclerView = view.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         View emptyView = view.findViewById(R.id.emptyContainer);
         recyclerView.setEmptyView(emptyView);
@@ -98,6 +99,6 @@ public class TeamFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(TeamDTO item);
     }
 }

@@ -1,4 +1,4 @@
-package com.appfa.android.team;
+package com.appfa.android.custom.ui.views;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class TeamRecyclerView extends RecyclerView {
+public class CustomRecyclerView extends RecyclerView {
 
     private View emptyView;
 
@@ -27,11 +27,11 @@ public class TeamRecyclerView extends RecyclerView {
         }
     };
 
-    public TeamRecyclerView(Context context) {
+    public CustomRecyclerView(Context context) {
         super(context);
     }
 
-    public TeamRecyclerView(Context context, @Nullable AttributeSet attrs) {
+    public CustomRecyclerView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
