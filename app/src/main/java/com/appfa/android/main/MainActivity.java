@@ -3,6 +3,7 @@ package com.appfa.android.main;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -13,8 +14,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.appfa.android.R;
+import com.appfa.android.team.TeamFragment;
+import com.appfa.android.team.dummy.DummyContent;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TeamFragment.OnListFragmentInteractionListener {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -48,18 +51,18 @@ public class MainActivity extends AppCompatActivity {
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                Fragment f = null;
+                Fragment fragment = null;
                 int itemId = menuItem.getItemId();
                 if (itemId == R.id.teams) {
-                    //f = new RefreshFragment();
+                    fragment = TeamFragment.newInstance(1);
                 } else if (itemId == R.id.tournaments) {
                     //f = new StopFragment();
                 }
-                if (f != null) {
-//                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                    transaction.replace(R.id.frame, f);
-//                    transaction.commit();
-//                    drawerLayout.closeDrawers();
+                if (fragment != null) {
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_container, fragment);
+                    transaction.commit();
+                    drawerLayout.closeDrawers();
                     return true;
                 }
                 return false;
@@ -79,4 +82,8 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
+    }
 }
