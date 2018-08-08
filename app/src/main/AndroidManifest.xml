@@ -12,16 +12,20 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".login.LoginActivity"
-            android:theme="@style/AppFullScreenTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            android:theme="@style/AppFullScreenTheme"
+            android:windowSoftInputMode="adjustPan|adjustResize">
         </activity>
         <activity
             android:name=".registration.RegistrationActivity"
             android:theme="@style/AppFullScreenTheme">
+        </activity>
+        <activity
+            android:name=".splash.SplashActivity"
+            android:theme="@style/SplashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 
