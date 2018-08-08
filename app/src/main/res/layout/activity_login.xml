@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/LoginScreen"
     android:fillViewport="true"
     android:orientation="vertical">
@@ -45,7 +45,7 @@
                     <View
                         android:layout_width="2dp"
                         android:layout_height="match_parent"
-                        android:background="@color/loginBackground"/>
+                        android:background="@color/colorTransparent"/>
 
                     <EditText
                         android:id="@+id/userName"
@@ -71,11 +71,11 @@
                     <View
                         android:layout_width="2dp"
                         android:layout_height="match_parent"
-                        android:background="@color/loginBackground"/>
+                        android:background="@color/colorTransparent"/>
 
                     <EditText
                         android:id="@+id/userPassword"
-                        style="@style/LoginFormDataEditText"
+                        style="@style/LoginFormDataPasswordEditText"
                         android:hint="@string/loginFormPasswordHint"/>
                 </LinearLayout>
 
@@ -84,26 +84,24 @@
                     style="@style/LoginFormShowPassword"
                     app:buttonTint="@color/colorWhite"/>
 
-                <RelativeLayout
+
+                <Button
+                    android:id="@+id/loginUser"
+                    style="@style/LoginFormButton"
+                    android:text="@string/loginButton"/>
+
+
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="2dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorWhite"/>
 
-                    <Button
-                        android:id="@+id/loginUser"
-                        style="@style/LoginFormButton"
-                        android:text="@string/loginButton"/>
-                </RelativeLayout>
+                <Button
+                    android:id="@+id/registrationButton"
+                    style="@style/LoginFormButton"
+                    android:text="@string/registrationButton"/>
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/loginErrorMessage"
-                style="@style/ErrorMessageStyle"
-                android:layout_below="@+id/formContainer"
-                tools:text="Error Message"/>
-
-            <TextView
-                android:id="@+id/registrationTextLink"
-                style="@style/RegistrationButtonOnLogin"/>
         </RelativeLayout>
     </FrameLayout>
 

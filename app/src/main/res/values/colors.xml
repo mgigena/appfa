@@ -13,11 +13,11 @@
     <color name="splashPrimary">#212121</color>
 
     <!--LOGIN-->
-    <color name="loginBackground">#01579B</color>
+    <color name="loginBackground">#2874A6</color>
     <color name="loginLogoTextColor">@color/colorWhite</color>
     <color name="loginFormContainerColor">@color/colorTransparent</color>
     <color name="loginFormTitleTextColor">@color/colorWhite</color>
-    <color name="loginFormButtonColor">@color/loginBackground</color>
+    <color name="loginFormButtonColor">@color/colorTransparent</color>
     <color name="loginFormButtonTextColor">@color/colorWhite</color>
 
     <!--ERROR-->
