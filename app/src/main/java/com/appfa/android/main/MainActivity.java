@@ -1,6 +1,7 @@
 package com.appfa.android.main;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -17,7 +18,7 @@ import com.appfa.android.R;
 import com.appfa.android.model.dto.TeamDTO;
 import com.appfa.android.team.TeamFragment;
 
-public class MainActivity extends AppCompatActivity implements TeamFragment.OnListFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, TeamFragment.OnListFragmentInteractionListener {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -48,26 +49,10 @@ public class MainActivity extends AppCompatActivity implements TeamFragment.OnLi
     private void configureNavigationDrawer() {
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navView = findViewById(R.id.navigation);
-        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                Fragment fragment = null;
-                int itemId = menuItem.getItemId();
-                if (itemId == R.id.teams) {
-                    fragment = TeamFragment.newInstance(1);
-                } else if (itemId == R.id.tournaments) {
-                    //f = new StopFragment();
-                }
-                if (fragment != null) {
-                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.frame_container, fragment);
-                    transaction.commit();
-                    drawerLayout.closeDrawers();
-                    return true;
-                }
-                return false;
-            }
-        });
+
+        navView.getMenu().getItem(0).setChecked(true);
+        onNavigationItemSelected(navView.getMenu().getItem(0));
+        navView.setNavigationItemSelectedListener(this);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -85,5 +70,24 @@ public class MainActivity extends AppCompatActivity implements TeamFragment.OnLi
     @Override
     public void onListFragmentInteraction(TeamDTO item) {
 
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment fragment = null;
+        int itemId = item.getItemId();
+        if (itemId == R.id.teams) {
+            fragment = TeamFragment.newInstance(1);
+        } else if (itemId == R.id.tournaments) {
+            //f = new StopFragment();
+        }
+        if (fragment != null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frame_container, fragment);
+            transaction.commit();
+            drawerLayout.closeDrawers();
+            return true;
+        }
+        return false;
     }
 }
