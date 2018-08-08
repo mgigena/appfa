@@ -23,7 +23,6 @@
     <string name="error_passwords_do_not_match">las contraseñas no coinciden</string>
     <string name="title_activity_main">MainActivity</string>
 
-    <!--MAIN SCREEN-->
     <!--DRAWER-->
     <string name="title_section1">Mis Equipos</string>
     <string name="title_section2">Mis Torneos</string>
@@ -40,4 +39,8 @@
     <string name="example_profile">Lionel Messi</string>
     <string name="example_team">Buby\'s</string>
     <!--/DRAWER-->
+
+    <!--EMPTY STATES-->
+    <string name="emptyStateTeamTitle"><b><i>¡Aún no perteneces a ningún EQUIPO!</i></b></string>
+    <string name="emptyStateTeamSubtitle">Para <b><i>CREAR</i></b> un equipo presioná el botón <b><i>AÑADIR</i></b> o podés <b><i>BUSCAR</i></b> y solicitar unirte (requiere aprobación)</string>
 </resources>
