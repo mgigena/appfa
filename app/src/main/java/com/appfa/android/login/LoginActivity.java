@@ -40,8 +40,7 @@ public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> 
 
     @Override
     public void onLoginButtonPressed(@NonNull String userName, @NonNull String password) {
-        //getPresenter().attempLogin(userName, password);
-        goToMain();
+        getPresenter().attempLogin(userName, password);
     }
 
     @Override

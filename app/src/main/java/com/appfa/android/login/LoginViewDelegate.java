@@ -12,9 +12,12 @@ import com.appfa.android.R;
 import com.appfa.android.annotation.CustomTypefaces;
 import com.appfa.android.annotation.ErrorMessages;
 import com.appfa.android.base.BaseViewDelegate;
+import com.appfa.android.custom.ui.dialog.CustomDialog;
 import com.appfa.android.utils.TextBaseUtils;
 
 import butterknife.BindView;
+
+import static com.appfa.android.annotation.ErrorMessages.DATA_REQUIRED;
 
 public class LoginViewDelegate extends BaseViewDelegate {
 
@@ -76,17 +79,16 @@ public class LoginViewDelegate extends BaseViewDelegate {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO descomentar
-//                keyboardUtils.hideKeyboard();
-//                if (isDataCompleted()) {
-//                    if (callback != null) {
+                keyboardUtils.hideKeyboard();
+                if (isDataCompleted()) {
+                    if (callback != null) {
                         final String user = userName.getText().toString();
                         final String password = userPassword.getText().toString();
                         callback.onLoginButtonPressed(user, password);
-//                    }
-//                } else {
-//                    showErrorMessage(DATA_REQUIRED);
-//                }
+                    }
+                } else {
+                    showErrorMessage(DATA_REQUIRED);
+                }
 
 
             }
@@ -107,7 +109,9 @@ public class LoginViewDelegate extends BaseViewDelegate {
     }
 
     protected void showErrorMessage(@ErrorMessages int errorMessage) {
-
+        new CustomDialog.Builder(userName.getContext(), R.layout.dialog_error)
+                .showOnlyDismissButtonWithDefaultButton()
+                .textResId(errorMessage).show();
     }
 
     interface LoginDelegateCallback extends BaseDelegateCallback {
