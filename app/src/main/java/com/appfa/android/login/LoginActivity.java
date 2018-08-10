@@ -66,7 +66,7 @@ public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> 
     @Override
     public void isUserLogged(boolean isLogged) {
         if (isLogged) {
-// TODO start app
+            goToMain();
         }
     }
 
