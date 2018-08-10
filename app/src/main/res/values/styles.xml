@@ -195,4 +195,29 @@
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
+
+    <style name="DialogImage">
+        <item name="android:layout_width">@dimen/dialogImageSize</item>
+        <item name="android:layout_height">@dimen/dialogImageSize</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="DialogTitle" parent="WrapContent">
+        <item name="android:layout_marginTop">@dimen/dialogTitleMarginTop</item>
+        <item name="android:textSize">@dimen/dialogTitleTextSize</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:visibility">gone</item>
+        <item name="fontPath">fonts/mirror_82.otf</item>
+    </style>
+
+    <style name="DialogMessage" parent="WrapContent">
+        <item name="android:layout_marginTop">@dimen/dialogTitleMarginTop</item>
+        <item name="android:textSize">@dimen/dialogTitleTextSize</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:visibility">gone</item>
+        <item name="fontPath">fonts/mirror_82.otf</item>
+    </style>
+
 </resources>

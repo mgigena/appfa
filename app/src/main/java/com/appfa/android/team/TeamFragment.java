@@ -3,16 +3,15 @@ package com.appfa.android.team;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.appfa.android.R;
+import com.appfa.android.custom.ui.views.CustomRecyclerView;
+import com.appfa.android.model.dto.TeamDTO;
 import com.appfa.android.team.dummy.DummyContent;
-import com.appfa.android.team.dummy.DummyContent.DummyItem;
 
 /**
  * A fragment representing a list of Items.
@@ -60,16 +59,13 @@ public class TeamFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_team_list, container, false);
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (columnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, columnCount));
-            }
-            recyclerView.setAdapter(new TeamRecyclerViewAdapter(DummyContent.ITEMS, listener));
-        }
+        Context context = view.getContext();
+        CustomRecyclerView recyclerView = view.findViewById(R.id.list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        View emptyView = view.findViewById(R.id.emptyContainer);
+        recyclerView.setEmptyView(emptyView);
+        recyclerView.setAdapter(new TeamRecyclerViewAdapter(DummyContent.ITEMS, listener));
+
         return view;
     }
 
@@ -103,6 +99,6 @@ public class TeamFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(TeamDTO item);
     }
 }

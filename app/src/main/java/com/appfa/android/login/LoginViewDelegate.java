@@ -12,10 +12,12 @@ import com.appfa.android.R;
 import com.appfa.android.annotation.CustomTypefaces;
 import com.appfa.android.annotation.ErrorMessages;
 import com.appfa.android.base.BaseViewDelegate;
+import com.appfa.android.custom.ui.dialog.CustomDialog;
 import com.appfa.android.utils.TextBaseUtils;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
+
+import static com.appfa.android.annotation.ErrorMessages.DATA_REQUIRED;
 
 public class LoginViewDelegate extends BaseViewDelegate {
 
@@ -33,8 +35,7 @@ public class LoginViewDelegate extends BaseViewDelegate {
     private final LoginDelegateCallback callback;
 
     public LoginViewDelegate(View view, LoginDelegateCallback callback) {
-        super(callback.getActivity());
-        ButterKnife.bind(this, view);
+        super(view, callback);
         this.callback = callback;
 
         setBehavior();
@@ -78,17 +79,16 @@ public class LoginViewDelegate extends BaseViewDelegate {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO descomentar
-//                keyboardUtils.hideKeyboard();
-//                if (isDataCompleted()) {
-//                    if (callback != null) {
+                keyboardUtils.hideKeyboard();
+                if (isDataCompleted()) {
+                    if (callback != null) {
                         final String user = userName.getText().toString();
                         final String password = userPassword.getText().toString();
                         callback.onLoginButtonPressed(user, password);
-//                    }
-//                } else {
-//                    showErrorMessage(DATA_REQUIRED);
-//                }
+                    }
+                } else {
+                    showErrorMessage(DATA_REQUIRED);
+                }
 
 
             }
@@ -109,7 +109,8 @@ public class LoginViewDelegate extends BaseViewDelegate {
     }
 
     protected void showErrorMessage(@ErrorMessages int errorMessage) {
-
+        new CustomDialog.Builder(userName.getContext())
+                .setImage(R.mipmap.ic_error_dialog).setTitle(errorMessage).show();
     }
 
     interface LoginDelegateCallback extends BaseDelegateCallback {
