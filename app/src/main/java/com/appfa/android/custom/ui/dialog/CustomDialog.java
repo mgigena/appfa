@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,6 +16,7 @@ import com.appfa.android.R;
 
 public class CustomDialog extends AlertDialog.Builder {
 
+    private static final int ROTATE_ANIMATION_DURATION = 3000;
     private final View.OnClickListener dismissDialogClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -35,6 +38,25 @@ public class CustomDialog extends AlertDialog.Builder {
     private void image(int res) {
         ImageView imageView = container.findViewById(R.id.dialogImage);
         imageView.setImageResource(res);
+        imageView.setVisibility(View.VISIBLE);
+    }
+
+    private void animatedImage(int res) {
+        ImageView imageView = container.findViewById(R.id.dialogImage);
+        imageView.setImageResource(res);
+
+        // setting animation
+        imageView.clearAnimation();
+
+        RotateAnimation rotate = new RotateAnimation(
+                0, 360,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f
+        );
+        rotate.setDuration(ROTATE_ANIMATION_DURATION);
+        rotate.setRepeatCount(Animation.INFINITE);
+        imageView.startAnimation(rotate);
+
         imageView.setVisibility(View.VISIBLE);
     }
 
@@ -64,7 +86,7 @@ public class CustomDialog extends AlertDialog.Builder {
     }
 
     public static class Builder {
-        private final Context context;
+        private CustomDialog dialog;
         private int imageRes;
         private int titleRes;
         private int messageRes;
@@ -73,7 +95,7 @@ public class CustomDialog extends AlertDialog.Builder {
          * @param context
          */
         public Builder(Context context) {
-            this.context = context;
+            dialog = new CustomDialog(context);
         }
 
         public Builder setImage(int resId) {
@@ -91,9 +113,29 @@ public class CustomDialog extends AlertDialog.Builder {
             return this;
         }
 
-        public void show() {
-            CustomDialog dialog = new CustomDialog(context);
+        public void cancel() {
+            if(dialog != null) {
+                dialog.create().cancel();
+            }
+        }
 
+        public void showLoading() {
+            dialog.setCancelable(false);
+            dialog.animatedImage(R.mipmap.ic_loading_dialog);
+
+            if (titleRes != 0) {
+                dialog.title(titleRes);
+            }
+
+            if (messageRes != 0) {
+                dialog.message(messageRes);
+            }
+
+            dialog.setView();
+            dialog.create().show();
+        }
+
+        public void show() {
             if (imageRes != 0) {
                 dialog.image(imageRes);
             }
