@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--LOGIN-->
-    <dimen name="loginLogoTextSize">40sp</dimen>
-    <dimen name="loginScreenPaddingTop">50dp</dimen>
+    <dimen name="loginLogoTextSize">65sp</dimen>
+    <dimen name="loginScreenPaddingTop">40dp</dimen>
     <dimen name="loginScreenPaddingBottom">50dp</dimen>
     <dimen name="loginScreenPaddingRight">20dp</dimen>
     <dimen name="loginScreenPaddingLeft">20dp</dimen>
     <dimen name="loginFormTitleTextSize">20sp</dimen>
+    <dimen name="loginFormSubtitleMarginTop">5dp</dimen>
     <dimen name="loginFormPadding">15dp</dimen>LoginFormDataContainer
-    <dimen name="loginFormDataContainerHeight">50dp</dimen>
+    <dimen name="loginFormDataContainerHeight">40dp</dimen>
     <dimen name="loginFormDataContainerMarginTop">5dp</dimen>
     <dimen name="loginFormDataContainerPaddingLeft">5dp</dimen>
     <dimen name="loginFormDataContainerPaddingRight">5dp</dimen>
@@ -19,4 +20,19 @@
 
     <!--REGISTRATION-->
     <dimen name="registrationOnLoginTextSize">20sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Per the design guidelines, navigation drawers should be between 240dp and 320dp:
+         https://developer.android.com/design/patterns/navigation-drawer.html -->
+    <dimen name="navigation_drawer_width">240dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+
+    <!--DIALOG-->
+    <dimen name="dialogPaddingBottom">20dp</dimen>
+    <dimen name="dialogTitleMarginTop">10dp</dimen>
+    <dimen name="dialogTitleTextSize">20sp</dimen>
+    <dimen name="dialogImageSize">100dp</dimen>
 </resources>

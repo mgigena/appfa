@@ -7,14 +7,15 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.appfa.android.R;
+import com.appfa.android.annotation.CustomTypefaces;
 import com.appfa.android.annotation.ErrorMessages;
 import com.appfa.android.base.BaseViewDelegate;
+import com.appfa.android.custom.ui.dialog.CustomDialog;
+import com.appfa.android.utils.TextBaseUtils;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import static com.appfa.android.annotation.ErrorMessages.DATA_REQUIRED;
 
@@ -28,22 +29,20 @@ public class LoginViewDelegate extends BaseViewDelegate {
     CheckBox showPassword;
     @BindView(R.id.loginUser)
     Button loginButton;
-    @BindView(R.id.loginErrorMessage)
-    TextView loginErrorMessage;
-    @BindView(R.id.registrationTextLink)
-    TextView registrationLink;
+    @BindView(R.id.registrationButton)
+    Button registrationLink;
 
     private final LoginDelegateCallback callback;
 
     public LoginViewDelegate(View view, LoginDelegateCallback callback) {
-        super(callback.getActivity());
-        ButterKnife.bind(this, view);
+        super(view, callback);
         this.callback = callback;
 
         setBehavior();
     }
 
     private void setBehavior() {
+        hidePassword();
         setUpShowPasswordCheckbox();
         setUpButtonsActions();
     }
@@ -54,15 +53,26 @@ public class LoginViewDelegate extends BaseViewDelegate {
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 final int cursor = userPassword.getSelectionStart();
                 if (isChecked) {
-                    userPassword.setInputType(InputType.TYPE_CLASS_TEXT |
-                            InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    showPassword();
                 } else {
-                    userPassword.setInputType(InputType.TYPE_CLASS_TEXT |
-                            InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    hidePassword();
                 }
                 userPassword.setSelection(cursor);
             }
         });
+    }
+
+    private void showPassword() {
+        userPassword.setInputType(InputType.TYPE_CLASS_TEXT |
+                InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+        userPassword.setTypeface(
+                TextBaseUtils.getCustomTypeface(userPassword.getContext(), CustomTypefaces.MIRROR_82));
+    }
+
+    private void hidePassword() {
+        userPassword.setInputType(InputType.TYPE_CLASS_TEXT |
+                InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        userPassword.setTypeface(TextBaseUtils.getCustomTypeface(userPassword.getContext(), CustomTypefaces.MIRROR_82));
     }
 
     private void setUpButtonsActions() {
@@ -79,6 +89,8 @@ public class LoginViewDelegate extends BaseViewDelegate {
                 } else {
                     showErrorMessage(DATA_REQUIRED);
                 }
+
+
             }
         });
 
@@ -97,7 +109,8 @@ public class LoginViewDelegate extends BaseViewDelegate {
     }
 
     protected void showErrorMessage(@ErrorMessages int errorMessage) {
-        loginErrorMessage.setText(errorMessage);
+        new CustomDialog.Builder(userName.getContext())
+                .setImage(R.mipmap.ic_error_dialog).setTitle(errorMessage).show();
     }
 
     interface LoginDelegateCallback extends BaseDelegateCallback {

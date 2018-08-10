@@ -38,7 +38,7 @@ public class RegistrationViewDelegate extends BaseViewDelegate {
     private final RegistrationDelegateCallback callback;
 
     public RegistrationViewDelegate(View view, RegistrationDelegateCallback callback) {
-        super(callback.getActivity());
+        super(view, callback);
         ButterKnife.bind(this, view);
         this.callback = callback;
         setBehavior();
