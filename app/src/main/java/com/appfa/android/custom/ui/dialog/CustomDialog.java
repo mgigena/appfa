@@ -1,109 +1,113 @@
 package com.appfa.android.custom.ui.dialog;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.appfa.android.R;
 
-public class CustomDialog extends Dialog {
+public class CustomDialog extends AlertDialog.Builder {
 
     private final View.OnClickListener dismissDialogClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            dismiss();
         }
     };
 
-    private TextView message;
-    private Button primaryButton;
-    private Button secondaryButton;
-    private Button optionalButton;
+    private LinearLayout container;
 
-    private CustomDialog(@NonNull Context context, final int layout) {
+    private CustomDialog(@NonNull Context context) {
         super(context);
-        setContentView(layout);
-        setUpDialogViews();
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        container = (LinearLayout) inflater.inflate(R.layout.dialog_layout, null);
     }
 
-    private void setUpDialogViews() {
-        message = findViewById(R.id.dialogText);
-        primaryButton = findViewById(R.id.primaryButton);
-        secondaryButton = findViewById(R.id.secondaryButton);
-        optionalButton = findViewById(R.id.optionalButton);
+    private void setView() {
+        setView(container);
     }
 
-    private void setMessage(@NonNull final int textResId) {
-        message.setText(textResId);
+    private void image(int res) {
+        ImageView imageView = container.findViewById(R.id.dialogImage);
+        imageView.setImageResource(res);
+        imageView.setVisibility(View.VISIBLE);
     }
 
-    private void showOnlyDismiss(@NonNull final int textResId) {
-        primaryButton.setText(textResId);
-        primaryButton.setOnClickListener(dismissDialogClickListener);
-        primaryButton.setVisibility(View.VISIBLE);
+    private void title(int res) {
+        TextView textView = container.findViewById(R.id.dialogTitle);
+        textView.setText(res);
+        textView.setVisibility(View.VISIBLE);
+    }
+
+    private void message(int res) {
+        TextView textView = container.findViewById(R.id.dialogMessage);
+        textView.setText(res);
+        textView.setVisibility(View.VISIBLE);
+    }
+
+    private void addButton(int textResId, View.OnClickListener listener) {
+        Button button = getNewButton();
+        button.setText(textResId);
+        button.setOnClickListener(listener);
+    }
+
+    private Button getNewButton() {
+        Button newButton = new Button(getContext());
+        newButton.setBackgroundResource(0); // sin background
+
+        return newButton;
     }
 
     public static class Builder {
         private final Context context;
-        private final int layout;
-        private int textResId = R.string.error_default;
-        private int dismissTextResId = R.string.ok_default_button;
-        private boolean showOnlyDismiss;
-        private int primaryButtonText;
-        private int secondaryButtonText;
-        private int optionalButtonText;
-        private OnClickListener primaryClickListener;
-        private OnClickListener secondaryClickListener;
-        private OnClickListener optionalClickListener;
+        private int imageRes;
+        private int titleRes;
+        private int messageRes;
 
-        public Builder(Context context, int layout) {
+        /**
+         * @param context
+         */
+        public Builder(Context context) {
             this.context = context;
-            this.layout = layout;
         }
 
-        public Builder textResId(@NonNull final int textResId) {
-            this.textResId = textResId;
+        public Builder setImage(int resId) {
+            imageRes = resId;
             return this;
         }
 
-        public Builder showOnlyDismissButtonWithDefaultButton() {
-            showOnlyDismiss = true;
+        public Builder setTitle(int resId) {
+            titleRes = resId;
             return this;
         }
 
-        public Builder primaryButton(@NonNull final int textResId,
-                                     @NonNull final OnClickListener listener) {
-            primaryButtonText = textResId;
-            primaryClickListener = listener;
-            return this;
-        }
-
-        public Builder secondaryButton(@NonNull final int textResId,
-                                       @NonNull final OnClickListener listener) {
-            secondaryButtonText = textResId;
-            secondaryClickListener = listener;
-            return this;
-        }
-
-        public Builder optionalButton(@NonNull final int textResId,
-                                      @NonNull final OnClickListener listener) {
-            optionalButtonText = textResId;
-            optionalClickListener = listener;
+        public Builder setMessage(int resId) {
+            messageRes = resId;
             return this;
         }
 
         public void show() {
-            CustomDialog customDialog = new CustomDialog(context, layout);
-            customDialog.setMessage(textResId);
+            CustomDialog dialog = new CustomDialog(context);
 
-            if (showOnlyDismiss) {
-                customDialog.showOnlyDismiss(dismissTextResId);
+            if (imageRes != 0) {
+                dialog.image(imageRes);
             }
 
-            customDialog.show();
+            if (titleRes != 0) {
+                dialog.title(titleRes);
+            }
+
+            if (messageRes != 0) {
+                dialog.message(messageRes);
+            }
+
+            dialog.setView();
+            dialog.create().show();
         }
     }
 }

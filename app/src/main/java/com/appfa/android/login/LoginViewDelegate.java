@@ -109,9 +109,8 @@ public class LoginViewDelegate extends BaseViewDelegate {
     }
 
     protected void showErrorMessage(@ErrorMessages int errorMessage) {
-        new CustomDialog.Builder(userName.getContext(), R.layout.dialog_error)
-                .showOnlyDismissButtonWithDefaultButton()
-                .textResId(errorMessage).show();
+        new CustomDialog.Builder(userName.getContext())
+                .setImage(R.mipmap.ic_error_dialog).setTitle(errorMessage).show();
     }
 
     interface LoginDelegateCallback extends BaseDelegateCallback {
