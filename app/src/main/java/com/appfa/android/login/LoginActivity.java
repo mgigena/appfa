@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.appfa.android.R;
+import com.appfa.android.annotation.ErrorMessages;
 import com.appfa.android.base.AppFaBaseActivity;
+import com.appfa.android.custom.ui.dialog.CustomDialog;
 import com.appfa.android.main.MainActivity;
 import com.appfa.android.registration.RegistrationActivity;
 
 public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> implements LoginView, LoginViewDelegate.LoginDelegateCallback {
 
+    private CustomDialog.Builder progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,18 @@ public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> 
     }
 
     @Override
+    public void showLoading() {
+        progressDialog = new CustomDialog.Builder(this);
+        progressDialog.setTitle(R.string.loadingTitle);
+        progressDialog.showLoading();
+    }
+
+    @Override
+    public void hideLoading() {
+        progressDialog.cancel();
+    }
+
+    @Override
     public void isUserLogged(boolean isLogged) {
         if (isLogged) {
 // TODO start app
@@ -57,12 +72,13 @@ public class LoginActivity extends AppFaBaseActivity<LoginView, LoginPresenter> 
 
     @Override
     public void onLoginSuccessful() {
-
+        goToMain();
     }
 
     @Override
-    public void onLoginFailed() {
-
+    public void onLoginFailed(@ErrorMessages int errorCode) {
+        new CustomDialog.Builder(this)
+                .setImage(R.mipmap.ic_error_dialog).setTitle(errorCode).show();
     }
 
     private void goToRegistration() {

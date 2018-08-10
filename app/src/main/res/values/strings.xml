@@ -18,12 +18,18 @@
     <string name="registrationRepeatPassword">repetir contraseña*</string>
     <string name="registrationButton">Registrar</string>
 
-    <!--ERROR MESSAGE-->
+    <!--ERRORS-->
     <string name="error_data_required">Por favor completá todos los campos marcados con <b><i>*</i></b></string>
     <string name="error_passwords_do_not_match">las contraseñas no coinciden</string>
-    <string name="error_default">ERROR</string>
     <string name="error_default_title"><b><i>FOUL!</i></b></string>
+    <string name="error_firebase_weak_password">La contraseña es demasiado simple</string>
+    <string name="error_firebase_invalid_credentials">Verificá los datos ingresados</string>
+    <string name="error_firebase_user_exits">El usuario ya existe</string>
+    <string name="error_firebase_generic_error">Error</string>
+
+    <!--DIALOG-->
     <string name="ok_default_button"><b><i>Ok</i></b></string>
+    <string name="loadingTitle">Espera un momento&#8230;</string>
 
     <!--DRAWER-->
     <string name="title_section1">Mis Equipos</string>
