@@ -87,6 +87,7 @@ public class CustomDialog extends AlertDialog.Builder {
 
     public static class Builder {
         private CustomDialog dialog;
+        private AlertDialog builder;
         private int imageRes;
         private int titleRes;
         private int messageRes;
@@ -114,8 +115,8 @@ public class CustomDialog extends AlertDialog.Builder {
         }
 
         public void cancel() {
-            if(dialog != null) {
-                dialog.create().cancel();
+            if(builder != null) {
+                builder.cancel();
             }
         }
 
@@ -132,7 +133,8 @@ public class CustomDialog extends AlertDialog.Builder {
             }
 
             dialog.setView();
-            dialog.create().show();
+            builder = dialog.create();
+            builder.show();
         }
 
         public void show() {
@@ -149,7 +151,8 @@ public class CustomDialog extends AlertDialog.Builder {
             }
 
             dialog.setView();
-            dialog.create().show();
+            builder = dialog.create();
+            builder.show();
         }
     }
 }

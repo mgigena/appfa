@@ -12,14 +12,17 @@
         android:theme="@style/AppFullScreenTheme">
         <activity
             android:name=".login.LoginActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize">
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
         <activity
-            android:name=".registration.RegistrationActivity">
+            android:name=".registration.RegistrationActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
         <activity
             android:name=".splash.SplashActivity"
-            android:theme="@style/SplashScreenTheme">
+            android:theme="@style/SplashScreenTheme"
+            android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -27,7 +30,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.MainActivity">
+            android:name=".main.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
     </application>
 

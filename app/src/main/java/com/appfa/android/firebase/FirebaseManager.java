@@ -8,9 +8,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import static com.appfa.android.annotation.ErrorMessages.GENERIC_ERROR;
+import static com.appfa.android.annotation.ErrorMessages.INVALID_CREDENTIALS;
+import static com.appfa.android.annotation.ErrorMessages.USER_ALREADY_EXITS;
+import static com.appfa.android.annotation.ErrorMessages.WEAK_PASSWORD;
 import static com.appfa.android.annotation.FirebaseDatabaseNames.USER_DATABASE;
 
 
@@ -46,8 +54,21 @@ public class FirebaseManager {
                         if (task.isSuccessful()) {
                             callback.onLoginSuccessful();
                         } else {
-                            // TODO task.getException();
-                            callback.onLoginFailed();
+                            int errorCode;
+                            try {
+                                throw task.getException();
+                            } catch (FirebaseAuthWeakPasswordException e) {
+                                errorCode = WEAK_PASSWORD;
+                            } catch (FirebaseAuthInvalidCredentialsException e) {
+                                errorCode = INVALID_CREDENTIALS;
+                            } catch (FirebaseAuthUserCollisionException e) {
+                                errorCode = USER_ALREADY_EXITS;
+                            } catch (FirebaseAuthInvalidUserException e) {
+                                errorCode = INVALID_CREDENTIALS;
+                            }catch (Exception e) {
+                                errorCode = GENERIC_ERROR;
+                            }
+                            callback.onLoginFailed(errorCode);
                         }
                     }
                 });

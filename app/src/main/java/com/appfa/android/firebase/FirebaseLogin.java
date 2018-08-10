@@ -1,9 +1,12 @@
 package com.appfa.android.firebase;
 
+import com.appfa.android.annotation.ErrorMessages;
+
 public interface FirebaseLogin {
 
     interface RegisterUserCallback {
         void onRegistrationSuccessful();
+
         void onRegistrationFailed();// TODO añadir tipo de error
     }
 
@@ -14,6 +17,6 @@ public interface FirebaseLogin {
     interface AttempLoginCallback {
         void onLoginSuccessful();
 
-        void onLoginFailed(); // TODO añadir tipo de error
+        void onLoginFailed(@ErrorMessages int errorCode);
     }
 }
